@@ -2,6 +2,8 @@ from flask import Flask, render_template, request
 import pickle
 import numpy as np
 from sklearn.preprocessing import StandardScaler
+import os
+
 
 with open('../scaler.pkl', 'rb') as f:
     scaler = pickle.load(f)  # Load the pre-trained scaler
@@ -82,4 +84,5 @@ def predict():
         return render_template('result.html', prediction=f"Error: {str(e)}")
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    port = int(os.environ.get('PORT', 5000))  # Use Render's dynamic port
+    app.run(host='0.0.0.0', port=port)
