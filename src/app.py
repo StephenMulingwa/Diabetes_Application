@@ -5,13 +5,13 @@ from sklearn.preprocessing import StandardScaler
 import os
 
 
-with open('scaler.pkl', 'rb') as f:
+with open('src/scaler.pkl', 'rb') as f:
     scaler = pickle.load(f)  # Load the pre-trained scaler
 
 
 
 # Load the trained model
-with open('Diabetes_Prediction.pkl', 'rb') as f:
+with open('src/Diabetes_Prediction.pkl', 'rb') as f:
     model = pickle.load(f)
 
 app = Flask(__name__)
