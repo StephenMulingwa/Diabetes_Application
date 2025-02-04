@@ -10,7 +10,13 @@ base_dir = os.path.dirname(os.path.abspath(__file__))
 scaler_path = os.path.join(base_dir, 'scaler.pkl')
 model_path = os.path.join(base_dir, 'Diabetes_Prediction.pkl')
 
-# Load the scaler and model prediction
+# Debugging: Print paths and directory contents
+print("Base Directory:", base_dir)
+print("Scaler Path:", scaler_path)
+print("Model Path:", model_path)
+print("Current Directory Contents:", os.listdir(base_dir))
+
+# Load the scaler and model
 with open(scaler_path, 'rb') as f:
     scaler = pickle.load(f)
 
