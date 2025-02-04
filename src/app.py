@@ -3,17 +3,17 @@ import pickle
 import numpy as np
 from sklearn.preprocessing import StandardScaler
 import os
+# Get the absolute path to the directory containing the script
+base_dir = os.path.dirname(os.path.abspath(__file__))
 
+# Construct the absolute paths to the files
+scaler_path = os.path.join(base_dir, 'scaler.pkl')
+model_path = os.path.join(base_dir, 'Diabetes_Prediction.pkl')
 
-BASE_DIR = os.path.dirname(os.path.abspath(__file__))
-
-# Load the scaler
-scaler_path = os.path.join(BASE_DIR, 'scaler.pkl')
+# Load the scaler and model
 with open(scaler_path, 'rb') as f:
     scaler = pickle.load(f)
 
-# Load the trained model
-model_path = os.path.join(BASE_DIR, 'Diabetes_Prediction.pkl')
 with open(model_path, 'rb') as f:
     model = pickle.load(f)
 
